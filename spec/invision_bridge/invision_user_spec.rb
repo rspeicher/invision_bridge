@@ -1,9 +1,9 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe InvisionUser do
+describe InvisionBridge::InvisionUser do
   before(:each) do
-    @user = InvisionUser.make_unsaved
-    @user.converge = InvisionUserConverge.make
+    @user = InvisionBridge::InvisionUser.make_unsaved
+    @user.converge = InvisionBridge::InvisionUserConverge.make
   end
   
   it "should provide a method to get converge_pass_hash" do
@@ -18,11 +18,11 @@ describe InvisionUser do
     # FIXME: These aren't really testing anything, since we never save the record (make_unsaved)
     %w(destroy delete).each do |method|
       it "should override #{method}" do
-        lambda { @user.send(method) }.should_not change(InvisionUser, :count)
+        lambda { @user.send(method) }.should_not change(InvisionBridge::InvisionUser, :count)
       end
       
       it "should override self.#{method}_all" do
-        lambda { InvisionUser.send("#{method}_all") }.should_not change(InvisionUser, :count)
+        lambda { InvisionBridge::InvisionUser.send("#{method}_all") }.should_not change(InvisionBridge::InvisionUser, :count)
       end
     end
   end

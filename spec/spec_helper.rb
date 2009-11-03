@@ -3,7 +3,9 @@ require 'rubygems'
 require 'active_support'
 require 'active_record'
 require 'spec'
-require 'machinist/active_record'
+
+require 'invision_bridge'
+require File.expand_path(File.dirname(__FILE__) + "/blueprints")
 
 TEST_DATABASE_FILE = File.join(File.dirname(__FILE__), '..', 'test.sqlite3')
 
@@ -18,16 +20,3 @@ load(File.dirname(__FILE__) + '/schema.rb')
 
 $: << File.join(File.dirname(__FILE__), '..', 'lib')
 require File.join(File.dirname(__FILE__), '..', 'init')
-
-InvisionUser.blueprint do
-  name { 'user' }
-  mgroup { 1 }
-  email { 'user@email.com' }
-  converge { InvisionUserConverge.make }
-  persistence_token { 'b18f1a5dc276001e6fe20139d5522755e414cdee' }
-end
-
-InvisionUserConverge.blueprint do
-  converge_pass_hash { '9c4acc137217b795b4d487bba53f5e7d' } # pass!word salted with 'salt'
-  converge_pass_salt { 'salt' }
-end

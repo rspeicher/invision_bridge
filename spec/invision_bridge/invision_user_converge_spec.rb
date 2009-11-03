@@ -1,9 +1,9 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe InvisionUserConverge do
+describe InvisionBridge::InvisionUserConverge do
   before(:each) do
-    @user = InvisionUser.make_unsaved
-    @converge = InvisionUserConverge.make
+    @user = InvisionBridge::InvisionUser.make_unsaved
+    @converge = InvisionBridge::InvisionUserConverge.make
     @converge.user = @user
   end
   
