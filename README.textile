@@ -4,6 +4,4 @@ A Rails plugin to allow Authlogic to use an Invision Power Board database's user
 
 h2. Credits
 
-* Chris Herring - "connection_ninja":http://github.com/cherring/connection_ninja
-
 Copyright (c) 2009 Robert Speicher, released under the MIT license
