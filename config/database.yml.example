@@ -1,0 +1,6 @@
+invision_bridge:
+  adapter: mysql
+  database: invision_forums
+  user: username
+  password: password
+  prefix: ibf_
