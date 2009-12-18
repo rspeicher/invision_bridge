@@ -8,7 +8,7 @@ module ActiveRecord
       module ClassMethods
         def establish_bridge(table)
           config = YAML::load(File.open(File.dirname(__FILE__) + '/../../config/database.yml'))
-          config = config['invision_bridge']
+          config = config["invision_bridge_#{Rails.env}"]
           establish_connection(config)
           
           unloadable # http://www.dansketcher.com/2009/05/11/cant-dup-nilclass/
