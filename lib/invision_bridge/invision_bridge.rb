@@ -1,4 +1,3 @@
-# Pretty much a copy-paste from connection_ninja
 module ActiveRecord
   module Acts
     module InvisionBridge
@@ -14,6 +13,7 @@ module ActiveRecord
           
           unloadable # http://www.dansketcher.com/2009/05/11/cant-dup-nilclass/
           set_table_name "#{config['prefix']}#{table}"
+          set_primary_key "member_id"
         end
       end
     end
