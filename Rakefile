@@ -21,3 +21,20 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('README')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |s|
+    s.name        = "invision_bridge"
+    s.summary     = "Uses Authlogic to allow your User model to use an IP.Board 3.x database."
+    s.email       = "rspeicher@gmail.com"
+    s.homepage    = "http://github.com/tsigo/invision_bridge"
+    s.description = "Uses Authlogic to allow your User model to use an IP.Board 3.x database."
+    s.authors     = ["Robert Speicher"]
+    s.files       = FileList["[A-Za-z]*", "{lib,rails,spec,config}/**/*"]
+    s.add_dependency 'authlogic'
+  end
+  Jeweler::GemcutterTasks.new
+rescue LoadError
+  puts "Jeweler, or one of its dependencies, is not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
+end
