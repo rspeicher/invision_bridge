@@ -8,13 +8,20 @@ Allows your Authlogic-based User model to authenticate using an IP.Board 3.x dat
 
 Modify your `config/database.yml` file to include your IP.Board database information:
 
+    invision_bridge_development:
+      adapter: mysql
+      database: my_forums_development
+      host: localhost
+      user: username
+      password: password
+      prefix: ibf_
+
     invision_bridge_production:
       adapter: mysql
       database: my_forums
       host: localhost
       user: username
       password: password
-      pool: 5
       prefix: ibf_
 
 ### Model creation
