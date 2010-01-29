@@ -2,10 +2,9 @@ module InvisionBridge
   module User
     class Base < ActiveRecord::Base
       self.abstract_class = true
-      
-      include ActiveRecord::Acts::InvisionBridge
 
-      establish_bridge('members')
+      include InvisionBridge::Base
+      establish_bridge
 
       # Authlogic -----------------------------------------------------------------
       attr_accessible :login, :password, :password_confirmation
@@ -14,7 +13,6 @@ module InvisionBridge
         c.login_field              = :name
         c.crypted_password_field   = :members_pass_hash
         c.password_salt_field      = :members_pass_salt
-        # c.validate_fields          = false
         c.validate_password_field  = false
       end
 
