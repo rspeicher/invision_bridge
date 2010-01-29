@@ -26,10 +26,10 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |s|
     s.name        = "invision_bridge"
-    s.summary     = "Uses Authlogic to allow your User model to use an IP.Board 3.x database."
+    s.summary     = "Allows your Authlogic-based User model to authenticate using an IP.Board 3.x database."
     s.email       = "rspeicher@gmail.com"
     s.homepage    = "http://github.com/tsigo/invision_bridge"
-    s.description = "Uses Authlogic to allow your User model to use an IP.Board 3.x database."
+    s.description = "Allows your Authlogic-based User model to authenticate using an IP.Board 3.x database."
     s.authors     = ["Robert Speicher"]
     s.files       = FileList["[A-Za-z]*", "{lib,rails,spec,config}/**/*"]
     s.add_dependency 'authlogic'
