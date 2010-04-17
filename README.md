@@ -1,10 +1,21 @@
 # InvisionBridge
 
-Allows your Authlogic-based User model to authenticate using an IP.Board 3.x database.
+Allows your [Authlogic](http://github.com/binarylogic/authlogic)-based User model to authenticate using an [IP.Board](http://www.invisionpower.com/) 3.x database.
 
 ## Usage
 
 ### Database configuration
+
+You'll need to **manually** alter the `ibf_members` table in your IP.Board database to
+add the following fields for use by Authlogic:
+
+    persistence_token             varchar(255)          NOT NULL
+    last_request_at               datetime              NULL
+    current_login_at              datetime              NULL
+    last_login_at                 datetime              NULL
+    current_login_ip              varchar(255)          NULL
+    last_login_ip                 varchar(255)          NULL
+    single_access_token           varchar(255)          NULL
 
 Modify your `config/database.yml` file to include your IP.Board database information:
 
@@ -52,4 +63,4 @@ but I was able to make the error stop appearing by adding `reconnect: true` to t
 
 ## Credits
 
-Copyright (c) 2009 Robert Speicher, released under the MIT license
+Copyright (c) 2010 Robert Speicher, released under the MIT license
