@@ -7,14 +7,20 @@ module InvisionBridge
     module ClassMethods
       def establish_bridge()
         if Rails
-          config = YAML::load(File.open(Rails.configuration.database_configuration_file))
-          config = config["invision_bridge_#{Rails.env}"]
+          config_file  = Rails.configuration.database_configuration_file
+          config_group = "invision_bridge_#{Rails.env}"
         else
-          config = YAML::load(File.open(File.join(File.dirname(__FILE__), '..', '..', 'config', 'database.yml')))
-          config = config["invision_bridge"]
+          config_file  = File.join(File.dirname(__FILE__), '..', '..', 'config', 'database.yml')
+          config_group = "invision_bridge"
         end
 
-        config['prefix'] ||= 'ibf_'
+        begin
+          config = YAML::load(config_file)
+          config = config[config_group]
+          config['prefix'] ||= 'ibf_'
+        rescue NoMethodError
+          raise "Unable to read database configuration from #{config_file} -- Make sure an #{config_group} definition exists."
+        end
 
         establish_connection(config)
 
