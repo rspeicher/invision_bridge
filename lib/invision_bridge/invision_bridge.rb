@@ -14,12 +14,13 @@ module InvisionBridge
           config_group = "invision_bridge"
         end
 
-        begin
-          config = YAML::load(config_file)
-          config = config[config_group]
-          config['prefix'] ||= 'ibf_'
-        rescue NoMethodError
+        config = YAML::load(File.open(config_file))
+        config = config[config_group]
+
+        if config.nil?
           raise "Unable to read database configuration from #{config_file} -- Make sure an #{config_group} definition exists."
+        else
+          config['prefix'] ||= 'ibf_'
         end
 
         establish_connection(config)
