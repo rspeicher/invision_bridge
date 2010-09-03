@@ -8,18 +8,18 @@ module Authlogic
           tokens = tokens.flatten
           digest = tokens.shift
           digest = filter_input(digest)
-          
+
           # Invision's hash: MD5(MD5(salt) + MD5(raw))
           digest = Digest::MD5.hexdigest(Digest::MD5.hexdigest(tokens.join('')) + Digest::MD5.hexdigest(digest))
-          
+
           digest
         end
-    
+
         # Does the crypted password match the tokens? Uses the same tokens that were used to encrypt.
         def matches?(crypted, *tokens)
           encrypt(*tokens) == crypted
         end
-        
+
         private
           def filter_input(input)
             # Invision's input filtering replaces a bunch of characters before

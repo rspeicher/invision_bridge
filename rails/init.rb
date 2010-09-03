@@ -1,1 +1,1 @@
-require 'invision_bridge/rails'
+require 'invision_bridge'
