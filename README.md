@@ -1,6 +1,6 @@
 # InvisionBridge
 
-Allows your [Authlogic](http://github.com/binarylogic/authlogic)-based User model to authenticate using an [IP.Board](http://www.invisionpower.com/) 3.x database.
+Allows your [Authlogic](http://github.com/binarylogic/authlogic)-based user model to authenticate using an [IP.Board](http://www.invisionpower.com/) 3.x database.
 
 ## Usage
 
@@ -37,22 +37,29 @@ Modify your `config/database.yml` file to include your IP.Board database informa
 
 ### Model creation
 
-Modify or create your User model to inherit from `InvisionBridge::User::Base`
+Modify or create your User model to include `InvisionBridge`
 
-    class User < InvisionBridge::User::Base
+    class User < ActiveRecord::Base
+      include InvisionBridge
     end
 
 That's it. You can further customize your model as needed. For example, you may
 have a group of administrators on your forum that you want to be administrators
 in your Rails application.
 
-    class User < InvisionBridge::User::Base
+    class User < ActiveRecord::Base
+      include InvisionBridge
+
       ADMIN_GROUP = 1
 
       def is_admin?
         self.member_group_id == ADMIN_GROUP
       end
     end
+
+### ORM Adapters
+
+Currently InvisionBridge only works with ActiveRecord models. I'd love to add a DataMapper adapter if/when I need one.
 
 ## Known Issues
 
