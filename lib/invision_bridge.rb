@@ -7,7 +7,7 @@ module InvisionBridge
   def self.config
     if @config.nil?
       if Rails
-        config_file = Rails.configuration.database_configuration_file
+        config_file = File.join(Rails.root, 'config', 'database.yml')
         config_group = "invision_bridge_#{Rails.env}"
       else
         config_file = File.join(File.dirname(__FILE__), '..', '..', 'config', 'database.yml')
