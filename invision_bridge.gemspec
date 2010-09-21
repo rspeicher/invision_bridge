@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{invision_bridge}
-  s.version = "0.2.1"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Robert Speicher"]
-  s.date = %q{2010-09-14}
+  s.date = %q{2010-09-20}
   s.description = %q{Allows your Authlogic-based User model to authenticate using an IP.Board 3.x database.}
   s.email = %q{rspeicher@gmail.com}
   s.extra_rdoc_files = [
@@ -22,13 +22,11 @@ Gem::Specification.new do |s|
      "VERSION",
      "config/database.yml.example",
      "init.rb",
-     "install.rb",
      "invision_bridge.gemspec",
      "lib/authlogic/crypto_providers/invision_power_board.rb",
      "lib/invision_bridge.rb",
      "lib/invision_bridge/active_record.rb",
-     "rails/init.rb",
-     "uninstall.rb"
+     "rails/init.rb"
   ]
   s.homepage = %q{http://github.com/tsigo/invision_bridge}
   s.rdoc_options = ["--charset=UTF-8"]
