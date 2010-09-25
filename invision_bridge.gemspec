@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Robert Speicher"]
-  s.date = %q{2010-09-20}
+  s.date = %q{2010-09-24}
   s.description = %q{Allows your Authlogic-based User model to authenticate using an IP.Board 3.x database.}
   s.email = %q{rspeicher@gmail.com}
   s.extra_rdoc_files = [
