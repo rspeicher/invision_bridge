@@ -1,4 +1,4 @@
-# InvisionBridge ![](http://stillmaintained.com/tsigo/invision_bridge.png)
+# InvisionBridge
 
 Allows your [Authlogic](http://github.com/binarylogic/authlogic)-based user model to authenticate using an [IP.Board](http://www.invisionpower.com/) 3.x database.
 
